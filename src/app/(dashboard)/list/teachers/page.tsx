@@ -1,3 +1,4 @@
+import FormModal from '@/components/FormModal';
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import TableSearch from '@/components/TableSearch';
@@ -86,11 +87,7 @@ export default function TeachersList() {
             </button>
           </Link>
           {/* BUTTON */}
-          {role === 'admin' && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-shubhPurple">
-              <Image src="/delete.png" alt="" width={16} height={16} />
-            </button>
-          )}
+          {role === 'admin' && <FormModal table="teacher" type="delete" id={items.id} />}
         </div>
       </td>
     </tr>
@@ -113,11 +110,7 @@ export default function TeachersList() {
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
             {/* THIRD */}
-            {role === 'admin' && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-shubhYellow">
-                <Image src="/plus.png" alt="" width={14} height={14} />
-              </button>
-            )}
+            {role === 'admin' && <FormModal table="teacher" type="create" />}
           </div>
         </div>
       </div>

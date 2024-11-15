@@ -1,3 +1,4 @@
+import FormModal from '@/components/FormModal';
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import TableSearch from '@/components/TableSearch';
@@ -53,15 +54,11 @@ export default function ClassList() {
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
           <Link href={`/list/teachers/${items.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-shubhSky">
-              <Image src="/edit.png" alt="" width={16} height={16} />
-            </button>
+          <FormModal table="class" type="update" id={items.id} data={items} />
           </Link>
           {/* BUTTON */}
           {role === 'admin' && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-shubhPurple">
-              <Image src="/delete.png" alt="" width={16} height={16} />
-            </button>
+            <FormModal table="class" type="delete" id={items.id} />
           )}
         </div>
       </td>
@@ -86,9 +83,7 @@ export default function ClassList() {
             </button>
             {/* THIRD */}
             {role === 'admin' && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-shubhYellow">
-                <Image src="/plus.png" alt="" width={14} height={14} />
-              </button>
+              <FormModal table="class" type="create" />
             )}
           </div>
         </div>

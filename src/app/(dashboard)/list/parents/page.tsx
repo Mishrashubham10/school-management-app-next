@@ -1,3 +1,4 @@
+import FormModal from '@/components/FormModal';
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import TableSearch from '@/components/TableSearch';
@@ -52,22 +53,25 @@ export default function ParentsList() {
           <p className="text-xs text-gray-500">{items?.email}</p>
         </div>
       </td>
-      <td className="hidden md:table-cell">{items.students?.join(",")}</td>
+      <td className="hidden md:table-cell">{items.students?.join(',')}</td>
       <td className="hidden lg:table-cell">{items.phone}</td>
       <td className="hidden lg:table-cell">{items.address}</td>
       <td>
         <div className="flex items-center gap-2">
-          {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-shubhSky">
-              <Image src="/edit.png" alt="" width={16} height={16} />
-            </button>
-          </Link>
           {/* BUTTON */}
           {role === 'admin' && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-shubhPurple">
-              <Image src="/delete.png" alt="" width={16} height={16} />
-            </button>
+            <>
+              {/* LINK BUTTON */}
+              <Link href={`/list/teachers/${items.id}`}>
+                <FormModal
+                  table="parent"
+                  type="update"
+                  id={items.id}
+                  data={items}
+                />
+              </Link>
+              <FormModal table="parent" type="delete" id={items.id} />
+            </>
           )}
         </div>
       </td>
@@ -91,11 +95,7 @@ export default function ParentsList() {
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
             {/* THIRD */}
-            {role === 'admin' && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-shubhYellow">
-                <Image src="/plus.png" alt="" width={14} height={14} />
-              </button>
-            )}
+            {role === 'admin' && <FormModal table="parent" type="create" />}
           </div>
         </div>
       </div>
