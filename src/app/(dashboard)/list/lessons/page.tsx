@@ -45,12 +45,10 @@ export default function LessonList() {
       <td>
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
-          <FormModal table="parent" type="update" id={items.id} data={items} />
-          </Link>
+          <FormModal table="lesson" type="update" id={items.id} data={items} />
           {/* BUTTON */}
           {role === 'admin' && (
-            <FormModal table="class" type="delete" id={items.id} />
+            <FormModal table="lesson" type="delete" id={items.id} />
           )}
         </div>
       </td>
@@ -75,7 +73,7 @@ export default function LessonList() {
             </button>
             {/* THIRD */}
             {role === 'admin' && (
-                <FormModal table="class" type="create" />
+                <FormModal table="lesson" type="create" />
             )}
           </div>
         </div>

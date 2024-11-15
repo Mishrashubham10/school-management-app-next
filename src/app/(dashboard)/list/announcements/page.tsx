@@ -45,9 +45,7 @@ export default function AnnouncementList() {
       <td>
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
           <FormModal table="announcement" type="update" id={items.id} data={items} />
-          </Link>
           {/* BUTTON */}
           {role === 'admin' && (
             <FormModal table="announcement" type="delete" id={items.id} />

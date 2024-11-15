@@ -53,9 +53,7 @@ export default function ClassList() {
       <td>
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
           <FormModal table="class" type="update" id={items.id} data={items} />
-          </Link>
           {/* BUTTON */}
           {role === 'admin' && (
             <FormModal table="class" type="delete" id={items.id} />

@@ -52,9 +52,7 @@ export default function ExamList() {
       <td>
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
           <FormModal table="exam" type="update" id={items.id} data={items} />
-          </Link>
           {/* BUTTON */}
           {role === 'admin' && (
             <FormModal table="exam" type="delete" id={items.id} />

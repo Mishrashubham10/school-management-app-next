@@ -59,9 +59,7 @@ export default function EventList() {
       <td>
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
           <FormModal table="event" type="update" id={items.id} data={items} />
-          </Link>
           {/* BUTTON */}
           {role === 'admin' && (
             <FormModal table="event" type="delete" id={items.id} />

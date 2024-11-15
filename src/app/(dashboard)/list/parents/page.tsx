@@ -62,14 +62,7 @@ export default function ParentsList() {
           {role === 'admin' && (
             <>
               {/* LINK BUTTON */}
-              <Link href={`/list/teachers/${items.id}`}>
-                <FormModal
-                  table="parent"
-                  type="update"
-                  id={items.id}
-                  data={items}
-                />
-              </Link>
+              <FormModal table="parent" type="update" id={items.id} data={items} />
               <FormModal table="parent" type="delete" id={items.id} />
             </>
           )}

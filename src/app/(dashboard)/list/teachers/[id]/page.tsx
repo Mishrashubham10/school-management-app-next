@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Announcements from '@/components/Announcements';
 import Performance from '@/components/Performance';
+import FormModal from '@/components/FormModal';
+import { role } from '@/lib/data';
 
 export default function SingleTeacherPage() {
   return (
@@ -26,7 +28,29 @@ export default function SingleTeacherPage() {
             {/* ------------ INFO CONTAINER ------------ */}
             <div className="w-2/3 flex flex-col justify-between gap-4">
               {/* TITLE */}
-              <h1 className="text-xl font-semibold">John Doe</h1>
+              <div className="flex items-center gap-4">
+                <h1 className="text-xl font-semibold">Leonard Snyder</h1>
+                {role === 'admin' && (
+                  <FormModal
+                    table="teacher"
+                    type="update"
+                    data={{
+                      id: 1,
+                      username: 'deanguerrero',
+                      email: 'deanguerrero@gmail.com',
+                      password: 'password',
+                      firstName: 'Dean',
+                      lastName: 'Guerrero',
+                      phone: '+1 234 567 89',
+                      address: '1234 Main St, Anytown, USA',
+                      bloodType: 'A+',
+                      dateOfBirth: '2000-01-01',
+                      sex: 'male',
+                      img: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200',
+                    }}
+                  />
+                )}
+              </div>
               {/* DESC */}
               <p className="text-sm text-gray-500">
                 Lorem, ipsum dolor sit amet consectetur adipisicing.
@@ -118,27 +142,37 @@ export default function SingleTeacherPage() {
         </div>
         {/* --------------- BOTTOM --------------- */}
         <div className="mt-4 bg-white rounded-md p-4 h-[800px]">
-          <h1>Teacher's Schedule</h1>
+          <h1>Teacher&aposs Schedule</h1>
           <BigCalendar />
         </div>
       </div>
       {/* --------------- RIGHT --------------- */}
       <div className="w-full xl:w-1/3 flex flex-col gap-4">
-      {/* TOP SECTION */}
-      <div className="bg-white p-4 rounded-md">
-        <h1 className='text-xl font-semibold'>Shortcuts</h1>
-        <div className="mt-4 flex gap-4 flex-wrap text-xs text-gray-500">
-            <Link className='p-3 rounded-md bg-shubhSkyLight' href="/">Teacher's Classes</Link>
-            <Link className='p-3 rounded-md bg-shubhPurpleLight' href="/">Teacher's Students</Link>
-            <Link className='p-3 rounded-md bg-shubhYellowLight' href="/">Teacher's Lessons</Link>
-            <Link className='p-3 rounded-md bg-pink-50' href="/">Teacher's Exams</Link>
-            <Link className='p-3 rounded-md bg-shubhSkyLight' href="/">Teacher's Assignments</Link>
+        {/* TOP SECTION */}
+        <div className="bg-white p-4 rounded-md">
+          <h1 className="text-xl font-semibold">Shortcuts</h1>
+          <div className="mt-4 flex gap-4 flex-wrap text-xs text-gray-500">
+            <Link className="p-3 rounded-md bg-shubhSkyLight" href="/">
+              Teacher&#39s Classes
+            </Link>
+            <Link className="p-3 rounded-md bg-shubhPurpleLight" href="/">
+              Teacher&#39s Students
+            </Link>
+            <Link className="p-3 rounded-md bg-shubhYellowLight" href="/">
+              Teacher&#39s Lessons
+            </Link>
+            <Link className="p-3 rounded-md bg-pink-50" href="/">
+              Teacher&#39s Exams
+            </Link>
+            <Link className="p-3 rounded-md bg-shubhSkyLight" href="/">
+              Teacher&#39s Assignments
+            </Link>
+          </div>
         </div>
-      </div>
-      {/* CHART */}
-      <Performance />
-      {/* ANNOUNCEMENT */}
-      <Announcements />
+        {/* CHART */}
+        <Performance />
+        {/* ANNOUNCEMENT */}
+        <Announcements />
       </div>
     </div>
   );

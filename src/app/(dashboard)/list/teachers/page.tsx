@@ -81,11 +81,7 @@ export default function TeachersList() {
       <td>
         <div className="flex items-center gap-2">
           {/* LINK BUTTON */}
-          <Link href={`/list/teachers/${items.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-shubhSky">
-              <Image src="/view.png" alt="" width={16} height={16} />
-            </button>
-          </Link>
+          <FormModal table="teacher" type="update" id={items.id} data={items} />
           {/* BUTTON */}
           {role === 'admin' && <FormModal table="teacher" type="delete" id={items.id} />}
         </div>
