@@ -3,6 +3,16 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState } from 'react';
+import ParentForm from './forms/ParentForm';
+import SubjectForm from './forms/SubjectForm';
+import ClassForm from './forms/ClassForm';
+import LessonForm from './forms/LessonForm';
+import ExamForm from './forms/ExamForm';
+import AssignmentForm from './forms/AssignmentForm';
+import ResultForm from './forms/ResultForm';
+import AttendanceForm from './forms/AttendanceForm';
+import EventForm from './forms/EventForm';
+import AnnouncementForm from './forms/AnnouncementForm';
 
 // -------- NEXT.JS DYNAMIC FOR OPTIMIZATION ---------
 // ---- THIS IS ONLY FOR CLIENT RENDERING -----
@@ -18,6 +28,16 @@ const forms: {
 } = {
   teacher: (type, data) => <TeacherForm type={type} data={data} />,
   student: (type, data) => <StudentsForm type={type} data={data} />,
+  parent: (type, data) => <ParentForm type={type} data={data} />,
+  subject: (type, data) => <SubjectForm type={type} data={data} />,
+  class: (type, data) => <ClassForm type={type} data={data} />,
+  lessons: (type, data) => <LessonForm type={type} data={data} />,
+  exam: (type, data) => <ExamForm type={type} data={data} />,
+  assignment: (type, data) => <AssignmentForm type={type} data={data} />,
+  result: (type, data) => <ResultForm type={type} data={data} />,
+  attendance: (type, data) => <AttendanceForm type={type} data={data} />,
+  event: (type, data) => <EventForm type={type} data={data} />,
+  announcement: (type, data) => <AnnouncementForm type={type} data={data} />,
 };
 
 export default function FormModal({
